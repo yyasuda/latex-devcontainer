@@ -1,0 +1,50 @@
+# Latex on DevContainer Boilerplate
+DevContainer上でLaTex文章を書くリポジトリのボイラープレート
+
+### What's this?
+
+VS Codeで、LaTex文章の作成に必要な環境をDevContainerにまとめたものです。このリポジトリは、GitHubの[テンプレートリポジトリ](https://docs.github.com/ja/repositories/creating-and-managing-repositories/creating-a-template-repository)として動作します。
+
+現在の環境は以下の通りです。(必要に応じて変更するといいでしょう。)
+
+- uplatex
+- upbibtex
+- dvipdfmx
+- mendex
+- LaTeX Workshop
+- テキスト校正くん
+- SyncTex
+
+### Usage
+
+\* 初めに、VS CodeにDevContainer拡張機能を導入する必要があります。
+
+1. このリポジトリから、新しいリポジトリを作成します。
+2. リポジトリをcloneして、VS Codeで開きます。
+3. 右下にポップアップする「Reopen in Container」をクリックします。
+
+> [!NOTE]
+> `./.latexmkrc`はリポジトリ全体に適用されます。記事ごとに別々に設定する場合は、記事と同じディレクトリに`.latexmkrc`を配置します。
+> 
+> また、`./style`以下のstyファイルはリポジトリ全体で読み込めます。新たに追加した後はウィンドウを再読み込みしてください。
+
+- SyncTeXに対応しています。PDF内のテキストをCmd+クリック(Windowsの場合はCtrl+クリック)で該当箇所にジャンプできます。TexからPDFにジャンプするには、Tex上でコマンドパレットから「SyncTeX from cursor」を選択します。
+
+### Why did you make it?
+
+大学の学生実験でのレポート提出に備えて作成しました。
+
+### Support
+このプロジェクトでは、GMO FlattSecurity社の「GMO オープンソース開発者応援プログラム」の支援を受けて、「Takumi byGMO」によるセキュリティ診断を定期的に行っています。
+
+<a href="https://flatt.tech/oss/gmo/trampoline" target="_blank"><img src="https://flatt.tech/assets/images/badges/gmo-oss.svg" height="24px"/></a>
+
+このプロジェクトが良いと思ったら、ぜひ少額のご支援をお願いします！
+
+<a href="https://www.buymeacoffee.com/taiseiue" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
+### License
+このボイラープレートは、[The MIT License](./LICENSE.txt)のもとで公開します。
+
+Copyright (c) 2025 Taisei Uemura  
+Released under the [MIT license](./LICENSE.txt)

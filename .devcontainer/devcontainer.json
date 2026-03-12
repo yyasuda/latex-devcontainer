@@ -1,0 +1,75 @@
+{
+  "name": "LaTeX Editor",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "containerUser": "latex",
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "mounts": [
+    "source=${localWorkspaceFolder}/.latexmkrc,target=/home/latex/.latexmkrc,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/style,target=/usr/local/texlive/texmf-local/tex/latex/local/style,type=bind,consistency=cached"
+  ],
+  "postCreateCommand": "cd /usr/local/texlive/texmf-local/tex/latex/local/style && mktexlsr",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "James-Yu.latex-workshop",
+        "tomoki1207.pdf",
+        "ICS.japanese-proofreading"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "latex-workshop.latex.tools": [
+          {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+              "-time",
+              "-outdir=%OUTDIR%",
+              "%DOC%"
+            ],
+            "env": {}
+          }
+        ],
+        "latex-workshop.latex.recipes": [
+          {
+            "name": "latexmk",
+            "tools": [
+              "latexmk"
+            ]
+          }
+        ],
+        "latex-workshop.latex.recipe.default": "latexmk",
+        "workbench.editor.enablePreview": false,
+        "editor.formatOnSave": true,
+        "[latex]": {
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "James-Yu.latex-workshop"
+        },
+        "latex-workshop.formatting.latex": "latexindent",
+        "latex-workshop.formatting.latexindent.args": [
+          "%TMPFILE%",
+          "-c=%DIR%/",
+          "-y=defaultIndent: '%INDENT%'"
+        ],
+        "latex-workshop.linting.chktex.enabled": true,
+        "latex-workshop.linting.chktex.args": [
+          "-wall",
+          "-q",
+          "-n1",
+          "-n2",
+          "-n19",
+          "-n22",
+          "-n30",
+          "-n36",
+          "-n44",
+          "-e16"
+        ],
+        "workbench.editorAssociations": {
+          "*.pdf": "latex-workshop-pdf-hook"
+        }
+      }
+    }
+  }
+}
